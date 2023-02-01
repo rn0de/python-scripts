@@ -2,6 +2,9 @@
 import binascii
 import sys
 
+### Usage
+### python3 toHex.py "jmp esp"
+
 string_to_convert = sys.argv[1]
 def reverse_string(string_to_convert):
     reversed = string_to_convert[::1]
