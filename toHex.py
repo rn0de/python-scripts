@@ -2,19 +2,12 @@
 import binascii
 import sys
 
-##Usage:
-### python3 toHex.py "jmp esp"
-
 string_to_convert = sys.argv[1]
 def reverse_string(string_to_convert):
-    reversed = string_to_convert[::-1]
+    reversed = string_to_convert[::1]
     getReversed = [reversed[i:i+4] for i in range(0, len(reversed), 4)]
 
     return getReversed
-
-    getReversed = reverse_string(string_to_convert)
-    print("Result:", getReversed)
-
 
 def converter(string_to_convert):
     tobytes = string_to_convert.encode("utf-8")
@@ -25,7 +18,9 @@ def converter(string_to_convert):
     return final_data
     
 final_data = converter(string_to_convert)
-reverse_string(string_to_convert)
-print("\nLittle-endian hexadecimal:")
+ReversedStr = reverse_string(string_to_convert)
+print("\nReversed String:",ReversedStr)
+print("\nLittle-endian hexadecimal:\n")
 for blocks in final_data[::-1]:
     print("0x"+blocks)
+
